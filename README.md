@@ -63,6 +63,7 @@ pip install -r requirements.txt
 运行 `scripts/data_preprocessing.py` 脚本，对原始数据进行清洗和处理，处理缺失值等问题。
 ```bash
 python scripts/data_preprocessing.py
+```
 
 ### 2. 相关性分析
 运行 `scripts/correlation_analysis.py` 脚本，进行物种 - 代谢物相关性分析，并生成热图等可视化结果。
