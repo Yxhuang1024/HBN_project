@@ -34,6 +34,7 @@ project/
 │   └── README.md           # 项目说明文档
 │
 └── requirements.txt        # 项目依赖包列表
+```
 
 ## 四、数据说明
 
@@ -49,7 +50,7 @@ project/
 在项目根目录下，使用以下命令安装所需的 Python 依赖包：
 ```bash
 pip install -r requirements.txt
-
+```
 ### 2. 依赖包列表
 - `pandas`：用于数据处理和分析
 - `numpy`：用于数值计算
@@ -67,6 +68,7 @@ python scripts/data_preprocessing.py
 运行 `scripts/correlation_analysis.py` 脚本，进行物种 - 代谢物相关性分析，并生成热图等可视化结果。
 ```bash
 python scripts/correlation_analysis.py
+```
 
 ## 七、结果解读
 
