@@ -8,22 +8,6 @@
 
 Retinol remains an essential component in anti-aging skincare; however, a subset of users develop intolerance, characterized by compromised barrier integrity and inflammation. This project presents a comprehensive multi-omics investigation of retinol-induced skin adaptation using a prospective 28-day longitudinal study design, aiming to elucidate the molecular mechanisms of host-microbiome metabolic interactions during retinol tolerance establishment.
 
-### Key Findings
-
-#### 1. Biphasic Skin Phenotype Response
-- **Acute Phase:** Increased stratum corneum hydration, reduced sebum secretion, lower skin pH, improved wrinkle metrics
-- **Re-equilibration Phase:** Sustained barrier restoration and functional stabilization
-
-#### 2. Functional Microbial Community Remodeling
-- 969 microbial species detected with stable overall α-diversity
-- **Intolerant Group:** Overrepresentation of *Cutibacterium acnes*
-- **Tolerant Group:** Enrichment of protective species (*Sphingomonas hankookensis*, *Acinetobacter johnsonii*)
-
-#### 3. Temporal Metabolomic Fluctuations
-- 4,457 metabolites identified showing initial metabolic turbulence followed by partial recovery
-- **Early Adverse Phase:** Upregulated lipid/fatty acid metabolism, suppressed TCA cycle and sphingolipid activity
-- **Tolerance Establishment:** Enhanced TCA cycle, sphingolipid, ascorbate, and pentose metabolism
-
 ### Project Structure
 
 ```plaintext
