@@ -116,4 +116,4 @@ For questions or collaboration inquiries, please contact:
 Email: [huangyx23@mails.tsinghua.edu.cn]
 
 ### License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed for academic use only. It may be used for purposes such as research, teaching, and non-commercial collaborations within academic institutions.
