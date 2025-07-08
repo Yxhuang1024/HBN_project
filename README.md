@@ -43,9 +43,7 @@ retinol-tolerance-study/
 #### R Version
 - R version 4.3.2
 
-#### Package Installation
-
-# Install required R packages
+### Install required R packages
 ```r
 install.packages(c(
   "ggpubr", "ggplot2", "vegan", "dplyr", "ape", "cluster",
