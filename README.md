@@ -1,92 +1,119 @@
-# 视黄醇相关微生物与代谢物研究项目
+# Dynamic Trans-Omics Mechanisms Underpinning Retinol Tolerance
 
-## 一、项目概述
-本项目聚焦于视黄醇使用过程中皮肤微生物群落和代谢物的变化，旨在深入探究微生物 - 代谢物之间的相互关系，以及它们在视黄醇不耐受和耐受建立过程中的作用机制。通过对不同时间点（基线、视黄醇不耐受发生、耐受建立）的样本进行分析，我们获得了物种 - 代谢物相关性热图等数据，为揭示视黄醇与皮肤微生物生态系统的相互作用提供了重要线索。
 
-## 二、项目背景
-视黄醇作为一种常见的护肤成分，具有改善皮肤质地、减少皱纹等功效，但部分人群在使用过程中会出现不耐受现象。皮肤微生物群落与皮肤健康密切相关，然而目前对于视黄醇使用过程中微生物群落和代谢物的动态变化及其相互关系尚不清楚。本项目旨在填补这一研究空白，为开发更安全有效的视黄醇护肤品提供理论依据。
+![Experimental Design](Experimental%20design.png)
 
-## 三、项目结构
+
+### Overview
+
+Retinol remains an essential component in anti-aging skincare; however, a subset of users develop intolerance, characterized by compromised barrier integrity and inflammation. This project presents a comprehensive multi-omics investigation of retinol-induced skin adaptation using a prospective 28-day longitudinal study design, aiming to elucidate the molecular mechanisms of host-microbiome metabolic interactions during retinol tolerance establishment.
+
+### Key Findings
+
+#### 1. Biphasic Skin Phenotype Response
+- **Acute Phase:** Increased stratum corneum hydration, reduced sebum secretion, lower skin pH, improved wrinkle metrics
+- **Re-equilibration Phase:** Sustained barrier restoration and functional stabilization
+
+#### 2. Functional Microbial Community Remodeling
+- 969 microbial species detected with stable overall α-diversity
+- **Intolerant Group:** Overrepresentation of *Cutibacterium acnes*
+- **Tolerant Group:** Enrichment of protective species (*Sphingomonas hankookensis*, *Acinetobacter johnsonii*)
+
+#### 3. Temporal Metabolomic Fluctuations
+- 4,457 metabolites identified showing initial metabolic turbulence followed by partial recovery
+- **Early Adverse Phase:** Upregulated lipid/fatty acid metabolism, suppressed TCA cycle and sphingolipid activity
+- **Tolerance Establishment:** Enhanced TCA cycle, sphingolipid, ascorbate, and pentose metabolism
+
+### Project Structure
 
 ```plaintext
-project/
+retinol-tolerance-study/
 │
-├── data/                   # 存放项目数据
-│   ├── raw_data/           # 原始数据
-│   │   ├── species_metabolite_heatmap.csv  # 物种 - 代谢物相关性热图数据
-│   │   └── ...
-│   └── processed_data/     # 处理后的数据
-│       └── ...
+├── Experimental design.png # Experimental workflow
+├── data/ # Research data
+│ ├── intolerant_group/ # Intolerant group data
+│ │ ├── kegg_gene.csv # KEGG gene functional annotations
+│ │ ├── metabolites.csv # Metabolite abundance data
+│ │ ├── mOTUs3_species.txt # Microbial species abundance
+│ │ └── skin_trait.csv # Skin phenotype data
+│ └── tolerant_group/ # Tolerant group data
+│ ├── kegg_gene.csv
+│ ├── metabolites.csv
+│ ├── mOTUs3_species.txt
+│ └── skin_trait.csv
 │
-├── scripts/                # 存放分析脚本
-│   ├── data_preprocessing.py  # 数据预处理脚本
-│   ├── correlation_analysis.py  # 相关性分析脚本
-│   └── ...
+├── R_code/ # Analysis scripts
+│ ├── part1_Skin_phenotype.R # Skin phenotype analysis (Section 3.1)
+│ ├── part2_Microbial_species.R # Microbial species analysis (Section 3.2)
+│ ├── part3_Microbial_gene.R # Microbial gene analysis (Section 3.3)
+│ ├── part4_Metabolites.R # Metabolite analysis (Section 3.4)
+│ └── part5_Multi-omics.R # Multi-omics integration (Section 3.5)
 │
-├── results/                # 存放分析结果
-│   ├── figures/            # 生成的图表
-│   │   ├── species_metabolite_heatmap.png  # 物种 - 代谢物相关性热图
-│   │   └── ...
-│   └── tables/             # 生成的表格
-│       └── ...
-│
-├── docs/                   # 存放项目文档
-│   └── README.md           # 项目说明文档
-│
-└── requirements.txt        # 项目依赖包列表
+├── requirements.txt # R environment dependencies
+├── README.md # Project documentation
+└── LICENSE # License
 ```
 
-## 四、数据说明
+### Environment Setup
 
-### 1. 原始数据
-- `species_metabolite_heatmap.csv`：包含了不同微生物物种与多种代谢物之间的相关性数据，记录了在视黄醇使用的三个时间点（基线、视黄醇不耐受发生、耐受建立）的相关性信息。
+#### R Version
+- R version 4.3.2
 
-### 2. 数据格式
-数据以 CSV 文件形式存储，每一行代表一个微生物物种，每一列代表一种代谢物，单元格中的数值为物种与代谢物之间的相关性系数。部分数据可能存在缺失值（用 `NA` 表示）。
+#### Package Installation
 
-## 五、环境配置
-
-### 1. 依赖包安装
-在项目根目录下，使用以下命令安装所需的 Python 依赖包：
-```bash
-pip install -r requirements.txt
-```
-### 2. 依赖包列表
-- `pandas`：用于数据处理和分析
-- `numpy`：用于数值计算
-- `matplotlib`：用于数据可视化
-- `seaborn`：用于绘制热图等图表
-
-## 六、分析流程
-
-### 1. 数据预处理
-运行 `scripts/data_preprocessing.py` 脚本，对原始数据进行清洗和处理，处理缺失值等问题。
-```bash
-python scripts/data_preprocessing.py
+# Install required R packages
+```r
+install.packages(c(
+  "ggpubr", "ggplot2", "vegan", "dplyr", "ape", "cluster",
+  "pairwiseAdonis", "reshape2", "tidyr", "randomcoloR",
+  "ReporterScore", "KEGGREST", "ggpmisc", "pheatmap",
+  "readr", "patchwork", "grid", "ggrepel", "forcats",
+  "ggsci", "readxl", "ggcor"
+))
 ```
 
-### 2. 相关性分析
-运行 `scripts/correlation_analysis.py` 脚本，进行物种 - 代谢物相关性分析，并生成热图等可视化结果。
-```bash
-python scripts/correlation_analysis.py
+### Analysis Workflow
+
+#### Step 1: Skin Phenotype Analysis
+```r
+source("R_code/part1_Skin_phenotype.R")
+```
+Analyze dynamic changes in skin phenotypes during retinol use, identifying biphasic response patterns.
+
+#### Step 2: Microbial Species Analysis
+```r
+source("R_code/part2_Microbial_species.R")
+```
+Assess microbial community α/β diversity changes and identify significantly different key species.
+
+#### Step 3: Microbial Gene Function Analysis
+```r
+source("R_code/part3_Microbial_gene.R")
+```
+Perform functional pathway enrichment analysis based on KEGG database to reveal microbial functional remodeling.
+
+#### Step 4: Metabolite Analysis
+```r
+source("R_code/part4_Metabolites.R")
+```
+Untargeted metabolomics analysis to identify temporal regulatory patterns of key metabolic pathways.
+
+#### Step 5: Multi-omics Integration
+```r
+source("R_code/part5_Multi-omics.R")
+```
+Integrate phenotype, microbial, and metabolomic data to construct host-microbiome interaction networks.
+
+
+### Citation
+If you use the data or code from this project, please cite our research:
+```r
+[Author Information]. Dynamic Trans-Omics Mechanisms Underpinning Retinol Tolerance: Stage-specific Reconstruction of Skin Barrier Function and Host--Microbiome Metabolic Interactions. [Journal Information], [Year].
 ```
 
-## 七、结果解读
+### Contact
+For questions or collaboration inquiries, please contact:
+Email: [huangyx23@mails.tsinghua.edu.cn]
 
-### 1. 物种 - 代谢物相关性热图
-热图展示了不同微生物物种与代谢物之间的相关性。正相关表示随着微生物物种丰度的增加，代谢物含量可能增加；负相关则相反。相关性绝对值越接近 1，表明两者的关联越紧密。
-
-### 2. 关键发现
-- 某些微生物与多种代谢物呈强正相关或负相关，推测这些微生物在代谢网络中可能扮演关键角色。
-- 部分代谢物与多个微生物相关，暗示其可能是多种微生物共同作用的产物或底物。
-
-## 八、注意事项
-- 由于数据中存在缺失值，可能会影响部分分析结果的准确性。在后续研究中，可考虑采用更合适的方法处理缺失值。
-- 相关性分析仅能揭示物种与代谢物之间的关联，不能直接证明因果关系。如需深入了解相互作用机制，需进行进一步的实验研究。
-
-## 九、贡献者
-- [贡献者姓名 1] - [邮箱地址 1]
-- [贡献者姓名 2] - [邮箱地址 2]
-
-## 十、许可证
-本项目采用 [许可证名称] 许可证，详情请参阅 [许可证文件路径]。
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
